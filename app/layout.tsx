@@ -6,6 +6,8 @@ import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import ModalProvider from '@/providers/modal-provider'
+import ToastProvider from '@/providers/tosat-provider'
+
 
 
 
@@ -25,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+       
         <ModalProvider/>
+        <ToastProvider/>
         <Navbar/>
         {children}
         <Footer/>
