@@ -3,7 +3,8 @@
 import Container from '@/components/ui/container'
 import useCart from '@/hooks/use-cart';
 import React,{useState,useEffect} from 'react'
-import CartItem from './components/Cart-item';
+import CartItem from './components/cart-item';
+
 import Summary from './components/summary';
 export const revalidate = 0;
 const CartPage = () => {
