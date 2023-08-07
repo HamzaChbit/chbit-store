@@ -48,6 +48,16 @@ const CartItem: React.FC<CartItemProps> = ({data}) => {
             <Currency  value={data.price} />
 
         </div>
+           <div   className='flex flex-row w-40 ' >
+          <button  className='border-2  px-2 py-2'  onClick={() => cart.incrementQuantity(data.id)}>+</button>
+                    <input  className='border-2  w-10 ' 
+                        type="number"
+                        min="1" // Minimum value is 1
+                        value={data.quantity}
+                        onChange={(e) => cart.editQuantity(data.id, parseInt(e.target.value))}
+                    />
+                    <button className='border-2 px-2 py-2' onClick={() => cart.decrementQuantity(data.id)}>-</button>
+          </div>
       </div>
     </li>
   )
