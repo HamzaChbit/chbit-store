@@ -32,17 +32,20 @@ const ProductCard: React.FC<ProductCard> = ({
     previewModal.onOpen(data);
   };
 
-  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
-    event.stopPropagation();
+ const [quantity, setQuantity] = useState(1); // Default quantity is 1
 
-    cart.addItem(data);
-  };
+const onAddToCart = () => {
+    cart.addItem(data, quantity);
+    // Reset quantity after adding to cart
+    setQuantity(1);
+};
   
   return ( 
-    <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+    <div  className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
       {/* Image & actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image 
+          onClick={handleClick}
           src={data.images?.[0]?.url} 
           alt="" 
           fill
