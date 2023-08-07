@@ -4,11 +4,12 @@ import Container from '@/components/ui/container'
 import useCart from '@/hooks/use-cart';
 import React,{useState,useEffect} from 'react'
 import CartItem from './components/cart-item';
-
+import { useRouter } from 'next/navigation';
 import Summary from './components/summary';
 export const revalidate = 0;
 const CartPage = () => {
     const cart = useCart()
+     const route = useRouter()
     const [isMounted,setIsMounted] = useState(false)
     useEffect(()=>{
         setIsMounted(true)
@@ -16,7 +17,9 @@ const CartPage = () => {
         if(!isMounted){
             return null
         }
-
+ if(cart.items.length ===0) {
+route.push('/')
+        }
 
   return (
     <div className="bg-white">
