@@ -2,11 +2,12 @@ export interface Product {
     id: string;
     category: Category;
     name: string;
-    price: string;
+    price: number;
     isFeatured: boolean;
     size: Size;
     color: Color;
     images: Image[]
+    quantity: number; 
   };
   
   export interface Image {
