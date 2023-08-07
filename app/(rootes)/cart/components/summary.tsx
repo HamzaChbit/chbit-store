@@ -25,9 +25,9 @@ const Summary = () => {
     }
   }, [searchParams, removeAll]);
 
-  const totalPrice = items.reduce((total, item) => {
-    return total + Number(item.price)
-  }, 0);
+ const totalPrice = items.reduce((total, item) => {
+    return total + item.price * item.quantity;
+}, 0);
 
   const onCheckout = async () => {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
