@@ -14,9 +14,13 @@ interface InfoProps {
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
 
-  const onAddToCart = () => {
-    cart.addItem(data);
-  }
+ const [quantity, setQuantity] = useState(1); // Default quantity is 1
+
+const onAddToCart = () => {
+    cart.addItem(data, quantity);
+    // Reset quantity after adding to cart
+    setQuantity(1);
+};
 
   return ( 
     <div>
