@@ -6,7 +6,7 @@ import Currency  from "@/components/ui/currency";
 import Button from "@/components/ui/button";
 import { Product } from "@/types";
 import useCart from "@/hooks/use-cart";
-
+import { useState } from "react";
 interface InfoProps {
   data: Product
 };
